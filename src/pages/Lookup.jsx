@@ -19,8 +19,6 @@ import {
 
 const COLORS = ["#06b6d4", "#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899"];
 
-
-
 const CustomYAxisTick = ({ x, y, payload, tokens }) => {
     const token = tokens.find((t) => t.symbol === payload.value);
     return (
@@ -168,7 +166,6 @@ export default function Lookup() {
                     transition={{ duration: 0.4 }}
                     className="space-y-8 bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur shadow"
                 >
-                    {/* Profile Section */}
                     <div className="flex items-center gap-4">
                         <img
                             src={profile.avatar || "/avatar-placeholder.png"}
@@ -181,7 +178,6 @@ export default function Lookup() {
                         </div>
                     </div>
 
-                    {/* Profile Metadata */}
                     <div className="grid sm:grid-cols-2 gap-4 text-sm text-slate-300">
                         {profile.twitter && (
                             <div>
@@ -205,10 +201,8 @@ export default function Lookup() {
                         )}
                     </div>
 
-                    {/* Token Charts */}
                     {tokens.length > 0 && (
                         <div className="space-y-12">
-                            {/* Bar Chart */}
                             <div>
                                 <h3 className="text-xl font-semibold mb-6 text-center">Top Tokens by USD Value</h3>
                                 <div className="h-[600px] w-full">
@@ -257,7 +251,6 @@ export default function Lookup() {
                                 </div>
                             </div>
 
-                            {/* Pie Chart */}
                             <div>
                                 <h3 className="text-xl font-semibold mb-6 text-center">Token Distribution</h3>
                                 <div className="h-[500px] w-full">

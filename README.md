@@ -75,12 +75,18 @@ The app will be available at [http://localhost:5173](http://localhost:5173)
 ```
 /src
   /components
+    - Header.jsx
+    - Footer.jsx
+    - Layout.jsx
+    - ScrollToTop.jsx
+    - MobileMenu.jsx
+  /pages
     - Lookup.jsx
     - History.jsx
-    - TokenChart.jsx
+    - Home.jsx
   /utils
-    - ensUtils.js
-    - covalentUtils.js
+    - ethers.js
+    - covalent.js
   App.jsx
   main.jsx
 .env

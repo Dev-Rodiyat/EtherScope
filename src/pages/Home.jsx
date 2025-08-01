@@ -46,7 +46,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works Section */}
       <section className="max-w-5xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-white text-center mb-12">📦 How It Works</h2>
         <div className="grid md:grid-cols-3 gap-8">
@@ -79,7 +78,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="relative text-center py-20 px-4 bg-gradient-to-r from-[#0f0f1f]/80 to-[#151515]/80 rounded-3xl backdrop-blur-xl border border-white/10">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
           Ready to explore Ethereum identities?
