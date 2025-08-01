@@ -1,11 +1,7 @@
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-orange-50 text-gray-700 px-4 py-6 shadow border-t">
-      <div className="max-w-6xl mx-auto text-center">
-        <p className="text-sm md:text-base">&copy; {new Date().getFullYear()} StackJobs. All rights reserved.</p>
-      </div>
+    <footer className="bg-[#0f0f1f] text-slate-400 py-6 mt-10 text-center text-sm">
+      © {new Date().getFullYear()} EtherScope. All rights reserved.
     </footer>
   );
-};
-
-export default Footer;
+}

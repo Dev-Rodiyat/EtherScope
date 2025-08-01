@@ -1,101 +1,79 @@
-import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
-
 const faqs = [
   {
-    question: "Do I need to create an account to apply for jobs?",
-    answer: "No, StackJobs lets you browse and apply without creating an account.",
+    q: "What is EtherScope?",
+    a: "EtherScope is a frontend-only Web3 tool that lets you explore Ethereum identities using ENS names or wallet addresses.",
   },
   {
-    question: "Are the job listings verified?",
-    answer: "We source jobs from reliable platforms and regularly review listings for quality.",
+    q: "Do I need to connect my wallet?",
+    a: "No, EtherScope is completely read-only. You don’t need to connect a wallet to use it.",
   },
   {
-    question: "Can I filter jobs by remote or location?",
-    answer: "Yes, you can filter jobs by remote, hybrid, or specific cities.",
+    q: "Which chains are supported?",
+    a: "We currently support Ethereum mainnet via ENS. Multichain support is on the roadmap.",
   },
   {
-    question: "Is StackJobs only for developers?",
-    answer: "While developer roles are our focus, we also feature roles in design, data, and DevOps.",
-  },
+    q: "Where does the data come from?",
+    a: "We use public blockchain APIs such as Alchemy and Ethers.js to resolve identities and metadata."
+  }
 ];
 
-const About = () => {
-  const [openFAQ, setOpenFAQ] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setOpenFAQ(openFAQ === index ? null : index);
-  };
+export default function About() {
 
   return (
-    <div className="text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-900 pt-12">
+    <div className="space-y-24 md:pt-12 pt-6">
       {/* About Us */}
-      <section className="py-16 px-4 max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-4">About StackJobs</h1>
-        <p className="text-lg text-gray-700 dark:text-gray-300">
-          StackJobs is a modern platform dedicated to helping tech professionals connect with quality job opportunities - remote or on-site - across the globe.
+      <section className="max-w-4xl mx-auto px-4 text-white text-center">
+        <h1 className="text-4xl font-bold mb-4">🧠 About EtherScope</h1>
+        <p className="text-slate-300 text-lg">
+          EtherScope is a futuristic tool for navigating the world of Ethereum identities. It’s fast, intuitive, and fully frontend-based - powered by public APIs.
         </p>
       </section>
 
       {/* Our Mission */}
-      <section className="py-12 px-4 bg-orange-50 dark:bg-gray-800">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4 text-orange-600">Our Mission</h2>
-          <p className="text-gray-700 dark:text-gray-300">
-            To make job hunting for tech roles easier, faster, and more transparent - without unnecessary signups or distractions.
-          </p>
-        </div>
+      <section className="max-w-5xl mx-auto px-4 text-center text-white">
+        <h2 className="text-3xl font-bold mb-4">🚀 Our Mission</h2>
+        <p className="text-slate-300 max-w-2xl mx-auto">
+          We believe everyone should have seamless access to blockchain identity data. Our mission is to make ENS resolution simple, beautiful, and accessible for all.
+        </p>
       </section>
 
-      <section className="py-16 px-4 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">Why Choose StackJobs?</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+      {/* Why Us */}
+      <section className="max-w-6xl mx-auto px-4 text-white">
+        <h2 className="text-3xl font-bold text-center mb-8">✨ Why Choose EtherScope</h2>
+        <div className="grid md:grid-cols-3 gap-6">
           {[
-            {
-              title: "Tech-Only Listings",
-              desc: "We focus purely on tech roles - no spam, no unrelated jobs.",
-            },
-            {
-              title: "Remote & On-site",
-              desc: "Find roles that match your preferred work style - from fully remote to in-office.",
-            },
-            {
-              title: "No Login Required",
-              desc: "Apply instantly without creating yet another account.",
-            },
-          ].map((item, i) => (
-            <div key={i} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow">
-              <h3 className="font-semibold text-xl mb-2 text-orange-500">{item.title}</h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300">{item.desc}</p>
+            "Frontend-only — no backend needed.",
+            "Clean and modern UI with glassy Web3 vibes.",
+            "Instant ENS + wallet resolution.",
+            "Free and open — no wallet required.",
+            "Powered by Ethereum APIs.",
+            "Responsive and mobile-ready."
+          ].map((reason, i) => (
+            <div
+              key={i}
+              className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur text-white text-sm shadow hover:shadow-lg transition"
+            >
+              ✅ {reason}
             </div>
           ))}
         </div>
       </section>
 
-      <section className="pt-12 px-4 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">FAQs</h2>
+      {/* FAQs */}
+      <section className="max-w-4xl mx-auto px-4 text-white">
+        <h2 className="text-3xl font-bold text-center mb-8">❓ Frequently Asked Questions</h2>
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div
+            <details
               key={i}
-              className="border border-gray-200 hover:bg-orange-50 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-800 shadow-sm"
+              className="bg-white/5 border border-white/10 rounded-xl p-4 backdrop-blur-md hover:shadow transition"
             >
-              <button
-                onClick={() => toggleFAQ(i)}
-                className="w-full flex items-center justify-between font-medium text-left"
-              >
-                <span>{faq.question}</span>
-                {openFAQ === i ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-              </button>
-              {openFAQ === i && (
-                <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">{faq.answer}</p>
-              )}
-            </div>
+              <summary className="cursor-pointer text-cyan-300 font-medium">{faq.q}</summary>
+              <p className="mt-2 text-slate-300 text-sm">{faq.a}</p>
+            </details>
           ))}
         </div>
       </section>
     </div>
   );
-};
-
-export default About;
+}

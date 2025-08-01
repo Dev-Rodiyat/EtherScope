@@ -1,94 +1,96 @@
-import { Link } from "react-router-dom";
-import { Briefcase, Globe, Search, UserPlus } from "lucide-react";
-
-const Home = () => {
+export default function Home() {
   return (
-    <div className="text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-900 pt-14">
-      <section className="py-20 px-4 text-center bg-orange-400 text-white rounded-b-3xl">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Discover Tech Jobs That Fit You
+    <div className="space-y-32">
+      <section className="relative bg-gradient-to-b from-[#0c0c0c]/90 to-black text-white py-24 px-4 rounded-3xl shadow-2xl backdrop-blur-xl border border-white/10">
+        <div className="text-center max-w-3xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            Explore Ethereum Identities
           </h1>
-          <p className="text-lg md:text-xl mb-6">
-            Whether remote or on-site, find your next opportunity with StackJobs.
+          <p className="text-slate-300 text-lg mt-4">
+            EtherScope lets you discover ENS names, wallet details, and profiles - beautifully and instantly.
           </p>
-          <Link
-            to="/jobs"
-            className="inline-block bg-white text-orange-600 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
+          <a
+            href="/lookup"
+            className="inline-block mt-8 px-8 py-3 rounded-full bg-white/10 border border-white/20 text-white backdrop-blur-lg hover:bg-white/20 transition font-semibold"
           >
-            Browse Jobs
-          </Link>
+            🔍 Start Lookup
+          </a>
         </div>
       </section>
 
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-10">Why StackJobs?</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-            {[
-              {
-                icon: <Briefcase size={32} className="text-orange-500" />,
-                title: "Tech-Focused",
-                desc: "We curate jobs tailored for developers, designers, and tech pros.",
-              },
-              {
-                icon: <Globe size={32} className="text-orange-500" />,
-                title: "Global Reach",
-                desc: "Find remote and local jobs from around the world.",
-              },
-              {
-                icon: <Search size={32} className="text-orange-500" />,
-                title: "Simple Search",
-                desc: "Clean interface with powerful filtering and job discovery.",
-              },
-              {
-                icon: <UserPlus size={32} className="text-orange-500" />,
-                title: "No Sign-up Needed",
-                desc: "Jump straight in and start browsing jobs immediately.",
-              },
-            ].map((f, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow text-center">
-                <div className="mb-3">{f.icon}</div>
-                <h3 className="font-semibold text-lg mb-2">{f.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{f.desc}</p>
-              </div>
-            ))}
-          </div>
+      <section className="max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-white text-center mb-12">🔑 Features</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              title: "ENS → Wallet Address",
+              desc: "Enter any .eth name and get its Ethereum wallet address.",
+            },
+            {
+              title: "Wallet → ENS Name",
+              desc: "Paste a wallet address to find the reverse ENS record.",
+            },
+            {
+              title: "Profile Metadata",
+              desc: "Discover ENS-linked profile data like avatars and Twitter handles.",
+            },
+          ].map((f, i) => (
+            <div
+              key={i}
+              className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md text-white shadow-md hover:shadow-xl transition"
+            >
+              <h3 className="text-xl font-semibold mb-2 text-cyan-300">{f.title}</h3>
+              <p className="text-slate-300 text-sm">{f.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-orange-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-10">How It Works</h2>
-          <div className="space-y-8 text-left">
-            {[
-              { step: "1. Browse Jobs", desc: "Use our filters to explore tech jobs by location, remote type, or role." },
-              { step: "2. View Details", desc: "Get direct access to job descriptions and company information." },
-              { step: "3. Apply Instantly", desc: "Click through and apply on the employer’s site - no login required." },
-            ].map((item, i) => (
-              <div key={i} className="bg-white dark:bg-gray-700 rounded-lg p-6 shadow">
-                <h4 className="text-lg font-semibold text-orange-500 mb-2">{item.step}</h4>
-                <p className="text-sm text-gray-700 dark:text-gray-200">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+      {/* How It Works Section */}
+      <section className="max-w-5xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-white text-center mb-12">📦 How It Works</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              step: "1",
+              title: "Enter Name or Address",
+              desc: "Type in any ENS name like vitalik.eth or a wallet address.",
+            },
+            {
+              step: "2",
+              title: "We Resolve It",
+              desc: "We query the Ethereum blockchain to resolve identity data.",
+            },
+            {
+              step: "3",
+              title: "View Profile",
+              desc: "Get results with ENS name, wallet, and profile metadata instantly.",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md text-white shadow-md hover:shadow-xl transition"
+            >
+              <div className="text-cyan-300 text-2xl font-bold mb-2">Step {item.step}</div>
+              <h4 className="text-lg font-semibold mb-1">{item.title}</h4>
+              <p className="text-slate-300 text-sm">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="py-16 px-4 text-center bg-orange-500 text-white rounded-t-3xl">
-        <div className="max-w-xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">Ready to find your next opportunity?</h2>
-          <p className="mb-6">Browse hundreds of tech jobs from top companies and startups.</p>
-          <Link
-            to="/jobs"
-            className="inline-block bg-white text-orange-600 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
-          >
-            Get Started
-          </Link>
-        </div>
+      {/* CTA Section */}
+      <section className="relative text-center py-20 px-4 bg-gradient-to-r from-[#0f0f1f]/80 to-[#151515]/80 rounded-3xl backdrop-blur-xl border border-white/10">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to explore Ethereum identities?
+        </h2>
+        <a
+          href="/lookup"
+          className="inline-block px-8 py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold backdrop-blur-md hover:bg-white/20 transition"
+        >
+          🔍 Start Exploring Now
+        </a>
       </section>
     </div>
   );
-};
-
-export default Home;
+}

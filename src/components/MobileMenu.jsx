@@ -1,26 +1,37 @@
-import { NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { X } from "lucide-react";
 
-const MobileMenu = ({ navLinks, setMobileOpen }) => {
+export default function MobileMenu({ open, setOpen, navLinks }) {
+  const location = useLocation();
+
+  if (!open) return null;
+
   return (
-    <div className="md:hidden bg-white dark:bg-neutral-900 text-neutral-800 dark:text-white px-6 py-4 space-y-3 rounded-b-2xl shadow-lg">
-      {navLinks.map((link) => (
-        <NavLink
-          key={link.name}
-          to={link.path}
-          onClick={() => setMobileOpen(false)}
-          className={({ isActive }) =>
-            `block px-3 py-2 rounded-lg transition-colors duration-200 ${
-              isActive
-                ? "bg-orange-100 text-orange-600 dark:bg-orange-900 dark:text-orange-200 font-semibold"
-                : "hover:bg-orange-50 dark:hover:bg-neutral-800 hover:text-orange-500"
-            }`
-          }
-        >
-          {link.name}
-        </NavLink>
-      ))}
+    <div className="fixed inset-0 z-40 bg-black/70 flex items-start justify-end">
+      <div className="w-[70%] h-full bg-[#0f0f1f] p-6 shadow-lg">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-xl font-bold text-[#00FFA3]">Menu</h2>
+          <button onClick={() => setOpen(false)}>
+            <X className="text-white" />
+          </button>
+        </div>
+
+        <nav className="flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              onClick={() => setOpen(false)}
+              className={`text-lg font-medium transition ${location.pathname === link.path
+                  ? "text-[#00FFA3]"
+                  : "text-white hover:text-[#00FFA3]"
+                }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+      </div>
     </div>
   );
-};
-
-export default MobileMenu;
+}
