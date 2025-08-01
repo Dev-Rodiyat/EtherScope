@@ -1,75 +1,105 @@
-# 💼 StackJobs - Job Board Frontend App
+# 🔍 EtherScope
 
-A sleek and modern frontend application that allows users to search and explore job listings from around the world. This app uses a job-related API from [RapidAPI](https://rapidapi.com/) to fetch real-time data.
+EtherScope is a modern Ethereum address and ENS name lookup tool built with React. It allows users to search Ethereum wallet addresses or ENS names and retrieve detailed profile information and token analytics in a visually rich and interactive way.
+
+---
 
 ## ✨ Features
 
-- 🔍 Search jobs by keyword or title
-- 📍 Filter by location
-- 🧠 View job descriptions and requirements
-- 🌐 Responsive UI for desktop and mobile
-- 🚀 Powered by [RapidAPI] for dynamic job data
+* 🔎 ENS name and wallet address lookup using ethers.js
+* 🧠 Automatic ENS resolution, avatar, name, bio, website, and Twitter if available
+* 📊 Token analytics using Covalent API displayed as interactive charts
+* 📜 Persistent lookup history saved in localStorage
+* 🗑️ Ability to delete individual history entries or clear all
+* 🎨 Modern, responsive UI with animations using framer motion
 
-## 📸 Screenshots
-![Job Board Homepage](image.png)
-![Job Details Page](image-3.png)
-![Saved Jobs Page](image-2.png)
+---
 
-## 🔧 Tech Stack
+## ⚙️ Tech Stack
 
-- **React + Vite** – UI library
-- **Tailwind CSS** – Styling
-- **Axios** – For API requests
-- **React Router** – Routing
-- **RapidAPI** – Job data API
+* React + Vite
+* Tailwind CSS
+* ethers.js (for ENS resolution)
+* Covalent API (for token balances)
+* recharts (via recharts)
+* Framer Motion (animations)
+* lucide-react (icons)
 
-## 🔑 Getting Started
+---
 
-### 1. Clone the Repository
+## 🚀 Getting Started
+
+### 1. Clone the repo
 
 ```bash
-git clone https://github.com/Dev-Rodiyat/StackJobs.git
-cd StackJobs
-````
+git clone https://github.com/Dev-Rodiyat/EtherScope.git
+cd EtherScope
+```
 
-### 2. Install Dependencies
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Setup Environment Variables
+Then add:
 
-Create a `.env` file in the root and add your API credentials:
-
-```env
-VITE_JOB_API_KEY=your_rapidapi_key
+```
+VITE_COVALENT_API_KEY=your_covalent_api_key_here
+VITE_ALCHEMY_API_KEY=your_alchemy_api_key_here
 ```
 
-> 📌 You can find these values in your RapidAPI dashboard after subscribing to the job API you're using.
+You can get a free Covalent API key from: [Covalent API](https://goldrush.dev/platform/)
+You can get a free Alchemy API key from: [Alchemy API/](https://dashboard.alchemy.com/)
 
-### 4. Start the Development Server
+### 4. Start development server
 
 ```bash
 npm run dev
 ```
 
-Your app should now be running at `http://localhost:5173`
+The app will be available at [http://localhost:5173](http://localhost:5173)
 
-## 📁 Project Structure
+---
+
+## 🖼️ Screenshots
+
+| Home page                            | Lookup page                          |
+| ------------------------------------ | -------------------------------------|
+| ![Home](./src/assets/HomePage.png) | ![Lookup](./src/assets/LookUpPage.png) |
+
+---
+
+## 🛠️ Project Structure
 
 ```
-src/
-├── components/       # Reusable UI components
-├── pages/            # Page-level components (Home, JobDetails, etc.)
-├── api/              # API request logic
-├── assets/           # Images, icons
-├── App.jsx           # Root component with routing
-└── main.jsx          # Entry point
+/src
+  /components
+    - Lookup.jsx
+    - History.jsx
+    - TokenChart.jsx
+  /utils
+    - ensUtils.js
+    - covalentUtils.js
+  App.jsx
+  main.jsx
+.env
 ```
+
+---
+
+## 🧠 Future Improvements
+
+* Support for multiple chains (Polygon, BSC, etc.)
+* ENS avatar fallback logic with Blockies
+* Integration with other APIs like Moralis or Alchemy
+* Wallet connect for personal insights
+
+---
 
 ## 🙌 Acknowledgements
 
-* [RapidAPI](https://rapidapi.com/) for providing the job listings API
-* [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
-* [React](https://react.dev/) for the frontend framework
+* Covalent HQ – Unified blockchain data
+* ENS Domains – Human-readable Ethereum names
+* Ethers.js – Ethereum library for the modern web
+* Chart.js – Data visualization
